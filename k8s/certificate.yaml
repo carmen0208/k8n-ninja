@@ -1,0 +1,18 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: carmenliu-fun-tls
+spec:
+  secretName: carmenliu-fun
+  issueRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: carmenliu.fun
+  dnsNames:
+    - carmenliu.fun
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domain:
+          - carmenliu.fun
