@@ -4,8 +4,10 @@ metadata:
   name: carmenliu-fun-tls
 spec:
   secretName: carmenliu-fun
-  issueRef:
+  issuerRef:
     name: letsencrypt-prod
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
     kind: ClusterIssuer
   commonName: carmenliu.fun
   dnsNames:
